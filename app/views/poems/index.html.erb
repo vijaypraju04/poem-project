@@ -1,0 +1,12 @@
+ <%= button_to("Create a New Poem", new_poem_path, method: :get) %>
+  <br>
+
+  <%= form_tag(groups_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Poems" %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
+<h1> Welcome to Poem Land </h1>
+<% @poems.each do |poem| %>
+ <strong> <%= link_to poem.title, poem_path(poem) %> </strong> <br>
+<% end %>

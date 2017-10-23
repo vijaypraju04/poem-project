@@ -1,0 +1,14 @@
+<h1> Group Name </h1>
+<h3> <strong> <%= @poem.group.name %> </strong> </h3>
+
+<h1> Group Members </h1>
+<% @poem.group.users.each do |user| %>
+<h3>  <p> <%= user.username %> </p> </h3>
+  <% end %>
+
+
+<h1> Poem Title </h1>
+<h3> <%= @poem.title %> </h3>
+
+<h1> Poem Content </h1>
+<h3> <%= @poem.content %> </h3>

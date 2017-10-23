@@ -1,0 +1,12 @@
+<%= form_for @poem do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<div>
+<br>
+<%= f.label :body %>
+<%= f.text_area :content %>
+</div>
+
+<%= f.collection_select :group_id, @groups, :id, :name %>
+<%= f.submit %>
+<% end %>

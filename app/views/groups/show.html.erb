@@ -1,0 +1,13 @@
+<h1> GROUP NAME </h1>
+<%= @group.name %> <br>
+<h1> USERS IN GROUP </h1>
+<br>
+<% @group.users.each do |user| %>
+<p> <%= user.username %> </p>
+<% end %>
+<br>
+<h1> POEMS WRITTEN BY THIS GROUP </h1>
+<br>
+<% @group.poems.each do |poem| %>
+<%= link_to poem.title, poem_path(poem) %>
+<% end %>
