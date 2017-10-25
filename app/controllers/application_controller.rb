@@ -21,5 +21,4 @@ class ApplicationController < ActionController::Base
   def require_group
     return redirect_to controller: 'poems', action: 'index' unless in_group?
   end
-
 end

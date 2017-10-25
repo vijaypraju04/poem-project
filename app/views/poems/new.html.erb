@@ -7,6 +7,6 @@
 <%= f.text_area :content %>
 </div>
 
-<%= f.collection_select :group_id, @groups, :id, :name %>
+<%= f.collection_select :group_id, @user_groups, :id, :name %>
 <%= f.submit %>
 <% end %>

@@ -1,5 +1,6 @@
 class PoemsController < ApplicationController
-  before_action :require_group, only: [:new, :create]
+  #before_action :require_group, only: [:new, :create]
+
   def index
     @poems = Poem.all
     if params[:search]
@@ -16,6 +17,7 @@ class PoemsController < ApplicationController
   def new
     @poem = Poem.new
     @groups = Group.all
+    @user_groups = current_user.groups
   end
 
   def create
@@ -29,6 +31,11 @@ class PoemsController < ApplicationController
 
   def edit
     @poem = Poem.find_by(id: params[:id])
+    if @poem.group.users.include?(current_user)
+      render :edit
+    else
+      render :show
+    end
   end
 
   def update
