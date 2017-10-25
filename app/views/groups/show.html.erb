@@ -3,11 +3,16 @@
 <h1> USERS IN GROUP </h1>
 <br>
 <% @group.users.each do |user| %>
-<p> <%= user.username %> </p>
+<p> <%= user.name %> </p>
 <% end %>
 <br>
 <h1> POEMS WRITTEN BY THIS GROUP </h1>
 <br>
 <% @group.poems.each do |poem| %>
 <%= link_to poem.title, poem_path(poem) %>
+<% end %>
+
+<h1> JOIN GROUP </h1>
+<%= form_for @group do |f| %>
+<%= f.submit "Join" %>
 <% end %>

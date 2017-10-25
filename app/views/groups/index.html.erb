@@ -1,4 +1,16 @@
-<strong> GROUP NAMES </strong>
+<strong> POEM GROUPS </strong>
 <% @groups.each do |group| %>
 <p> <%= link_to group.name, group_path(group) %> </p>
+<% end %>
+
+
+<strong> CREATE NEW GROUP </strong>
+<%= form_for @group do |f| %>
+  <%= f.text_field :name, list: "names_autocomplete" %>
+  <datalist id="names_autocomplete">
+    <% Group.all.each do |group| %>
+      <option value="<%= group.name %>">
+    <% end %>
+  </datalist>
+  <%= f.submit %>
 <% end %>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :poems
-  resources :groups, only: [:index, :show, :new, :create, :edit, :update]
+  resources :groups, only: [:index, :new, :create, :show, :update]
   #resources :users, only: [:new, :show, :create, :edit, :update]
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # patch '/groups/:id', to: 'groups#update'
 end
