@@ -1,5 +1,5 @@
 class PoemsController < ApplicationController
-  before_action :require_logged_in, only: [:new, :create]
+  before_action :require_group, only: [:new, :create]
   def index
     @poems = Poem.all
     if params[:search]

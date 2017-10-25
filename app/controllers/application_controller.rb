@@ -10,7 +10,16 @@ class ApplicationController < ActionController::Base
     current_user.id != nil
   end
 
+  def in_group?
+    current_user.groups.any?
+  end
+
   def require_logged_in
     return redirect_to controller: 'sessions', action: 'new' unless logged_in?
   end
+
+  def require_group
+    return redirect_to controller: 'poems', action: 'index' unless in_group?
+  end
+
 end
