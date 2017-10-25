@@ -8,3 +8,17 @@
 <h3> <%= @poem.content %> </h3>
 
 <%= link_to "Edit", edit_poem_path(@poem) %>
+
+<h1> Leave a Comment </h1>
+<%= form_for @comment do |f| %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.hidden_field :poem_id, :value => @poem.id %>
+  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.submit "Comment" %>
+<% end %>
+
+<h3> Comments </h3>
+<% @poem.comments.each do |comment| %>
+<p>  <%= "#{comment.user.name}: #{comment.description}" %> </p>
+  <% end %>
