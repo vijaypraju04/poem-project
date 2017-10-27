@@ -6,7 +6,7 @@
 <% end %>
 <h5> POEMS WRITTEN BY THIS GROUP </h5>
 <% @group.poems.each do |poem| %>
-<%= link_to poem.title, poem_path(poem) %>
+<p> <%= link_to poem.title, poem_path(poem) %> </p>
 <% end %>
 
 <h5> JOIN GROUP </h5>

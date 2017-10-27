@@ -1,8 +1,8 @@
+
 <% if flash[:message] %>
 <div class="notice"><%= flash[:message] %> </div>
 <% end %>
-
-
+<br>
  <%= button_to("Create a New Poem", new_poem_path, method: :get) %>
   <br>
 
