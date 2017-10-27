@@ -20,6 +20,5 @@ class ApplicationController < ActionController::Base
 
   def require_group
     return redirect_to controller: 'poems', action: 'index' unless in_group?
-    flash[:message] = "YOU CAN'T DO THAT"
   end
 end

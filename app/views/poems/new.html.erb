@@ -12,6 +12,7 @@
 <%= f.label :body %>
 <%= f.text_area :content %>
 </div>
-<%= f.collection_select :group_id, @usergroups, :id, :name %>
+<%= f.collection_select :group_id, @usergroups, :id, :name, { prompt: "Choose a category" }, class: "browser-default" %>
+
 <%= f.submit %>
 <% end %>

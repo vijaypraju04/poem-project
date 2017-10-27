@@ -1,18 +1,18 @@
-<h1> GROUP NAME </h1>
+<h5> GROUP NAME </h5>
 <%= @group.name %> <br>
-<h1> USERS IN GROUP </h1>
-<br>
+<h5> USERS IN GROUP </h5>
 <% @group.users.each do |user| %>
 <p> <%= user.name %> </p>
 <% end %>
-<br>
-<h1> POEMS WRITTEN BY THIS GROUP </h1>
-<br>
+<h5> POEMS WRITTEN BY THIS GROUP </h5>
 <% @group.poems.each do |poem| %>
 <%= link_to poem.title, poem_path(poem) %>
 <% end %>
 
-<h1> JOIN GROUP </h1>
+<h5> JOIN GROUP </h5>
 <%= form_for @group do |f| %>
 <%= f.submit "Join" %>
 <% end %>
+
+<h5> CREATE A POEM </h5>
+<%= link_to "Create a poem!", new_poem_path %>

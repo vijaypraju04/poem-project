@@ -3,18 +3,19 @@
 <% end %>
 
 
-<h1> Group Name </h1>
-<h3> <strong> <%= @poem.group.name %> </strong> </h3>
+<h5> <p> group name - <%= @poem.group.name %> </p> </h5>
 
-<h1> Poem Title </h1>
+
 <h3> <%= @poem.title %> </h3>
 
-<h1> Poem Content </h1>
-<h3> <%= @poem.content %> </h3>
+<h5> <%= @poem.content %> </h5>
+<br>
+<%= link_to "Edit Poem", edit_poem_path(@poem) %>
 
-<%= link_to "Edit", edit_poem_path(@poem) %>
 
-<h1> Leave a Comment </h1>
+<br>
+<br>
+     Leave a Comment
 <%= form_for @comment do |f| %>
   <%= f.label :description %>
   <%= f.text_area :description %>
@@ -23,7 +24,7 @@
   <%= f.submit "Comment" %>
 <% end %>
 
-<h3> Comments </h3>
+<h5> Comments </h5>
 <% @poem.comments.each do |comment| %>
 <p>  <%= "#{comment.user.name}: #{comment.description}" %> </p>
 <% end %>

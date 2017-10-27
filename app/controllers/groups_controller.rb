@@ -19,7 +19,7 @@ before_action :require_logged_in
       @group.users << current_user
       @group.save
       # current_user.groups << group_params
-      redirect_to poems_path
+      redirect_to groups_path
     else
       render :new
     end

@@ -1,4 +1,11 @@
-<h1>Hi, <%= @user.name %></h1>
+<p> <h1>Greetings, <%= @user.name %></h1> </p>
+
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
   <input type=submit value='logout'>
 <% end %>
+
+<p> <h1> Welcome to Poem-Land! </h1> </p>
+
+<br>
+<p> <%= link_to "Click here to browse all poems!", poems_path %> </p>
+<p> <%= link_to "Join a group or create your own!", groups_path %> </p>
