@@ -1,3 +1,8 @@
+<% if flash[:message] %>
+<div class="notice"><%= flash[:message] %> </div>
+<% end %>
+
+
 <h1> Group Name </h1>
 <h3> <strong> <%= @poem.group.name %> </strong> </h3>
 
@@ -21,4 +26,4 @@
 <h3> Comments </h3>
 <% @poem.comments.each do |comment| %>
 <p>  <%= "#{comment.user.name}: #{comment.description}" %> </p>
-  <% end %>
+<% end %>

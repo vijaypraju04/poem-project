@@ -1,5 +1,6 @@
 class PoemsController < ApplicationController
-  before_action :require_group, only: [:new, :create, :edit, :update]
+  before_action :require_group, only: [:new , :create, :edit, :update]
+
   def index
     @poems = Poem.all
     if params[:search]
@@ -24,9 +25,12 @@ class PoemsController < ApplicationController
   def create
     @poem = Poem.new(poem_params)
     if @poem.save
+      flash[:message] = "You just created a Poem!"
       redirect_to poem_path(@poem)
     else
-      render :new
+      # render :new
+      flash[:message] = "Uh Oh"
+      redirect_to new_poem_path
     end
   end
 
@@ -35,7 +39,7 @@ class PoemsController < ApplicationController
     if @poem.group.users.include?(current_user)
       render :edit
     else
-      render :show
+      redirect_to poem_path(@poem)
     end
   end
 
@@ -49,8 +53,8 @@ class PoemsController < ApplicationController
   end
 
   def destroy
-    @poem = Poem.find_by(id: params[:id])
-    @poem.destroy
+    poem = Poem.find_by(id: params[:id])
+    poem.destroy
     redirect_to poems_path
   end
 

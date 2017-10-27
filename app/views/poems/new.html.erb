@@ -1,3 +1,9 @@
+<% if flash[:message] %>
+<div class="notice"><%= flash[:message] %> </div>
+<% end %>
+
+<br>
+
 <%= form_for @poem do |f| %>
 <%= f.label :title %>
 <%= f.text_field :title %>
@@ -6,7 +12,6 @@
 <%= f.label :body %>
 <%= f.text_area :content %>
 </div>
-
 <%= f.collection_select :group_id, @usergroups, :id, :name %>
 <%= f.submit %>
 <% end %>
